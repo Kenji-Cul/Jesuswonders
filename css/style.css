@@ -1,0 +1,1663 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400&family=Signika+Negative:wght@300;400;500;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Signika Negative', sans-serif;
+}
+
+
+/* 
+Possible Colors
+#7ccccb
+#3c5251
+#2e2f31
+#212d2e
+#2e3c3b
+
+*/
+
+:root {
+    --background-color: #2e2f31;
+    --text-color: #fff;
+    --video-color: #3c5251;
+    --link-color: #fff;
+    --logo-size: 20px;
+    --logo-color: hsl(219, 4%, 7%);
+    --nav-color: #7ccccb;
+    --slider-color: rgb(175, 253, 9);
+    --icon-size: 2.4rem;
+    --active-color: rgb(87, 128, 0);
+}
+
+body {
+    background-color: var(--background-color);
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+li {
+    list-style: none;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--link-color);
+}
+
+section h2 {
+    text-align: center;
+    padding-bottom: 4rem;
+    color: var(--logo-color);
+}
+
+
+/* Wrapper Styling */
+
+.wrap-container {
+    padding: 0 1em;
+    position: relative;
+}
+
+.loader {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background: var(--background-color);
+    position: absolute;
+    z-index: 60000!important;
+}
+
+.loader>div {
+    height: 90px;
+    width: 90px;
+    border: 7px solid #45474b;
+    border-top-color: var(--nav-color);
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    animation: spin 0.7s infinite linear;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.accountdiv {
+    position: fixed;
+    top: 19em;
+    width: 90%;
+    height: 20rem;
+    background-color: #fff;
+    z-index: 40000;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    padding-left: 1rem;
+    transition: .2s cubic-bezier(0.44, -0.29, 0.01, 1.33);
+}
+
+.accountcon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cancelimg {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.account-content {
+    position: absolute;
+    top: 5em;
+    line-height: 2rem;
+    border: 4px solid var(--nav-color);
+    padding: 1.5rem;
+    width: 90%;
+}
+
+.account-content h2 {
+    color: #000;
+}
+
+.account-content span {
+    display: block;
+}
+
+.emoji {
+    position: absolute;
+    left: 50%;
+    top: 2%;
+    font-size: 30px;
+    color: #aaa;
+}
+
+.emoji:hover {
+    color: yellow;
+}
+
+
+/* Header Styling */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 1em 2em;
+    z-index: 20000;
+}
+
+.scroll-header {
+    border-radius: 0 0 1rem 1rem;
+    background-color: var(--logo-color);
+    box-shadow: 0 2px 4px hsla(0, 0%, 1%, 1);
+}
+
+.logo,
+.menudiv {
+    font-size: var(--logo-size);
+    cursor: pointer;
+}
+
+
+/* Nav Styling */
+
+nav {
+    /* position: absolute;
+    right: -100%; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--nav-color);
+    transform: translateX(120%);
+    transition: .2s cubic-bezier(0.44, -0.29, 0.01, 1.33);
+}
+
+.shownav {
+    transform: translateX(0)!important;
+}
+
+nav ul {
+    position: absolute;
+    top: 7em;
+}
+
+nav ul li {
+    padding-top: 2rem;
+    font-size: var(--logo-size);
+    text-transform: uppercase;
+}
+
+nav i {
+    color: var(--logo-color);
+    font-size: var(--icon-size);
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+}
+
+.menudiv i {
+    color: var(--link-color);
+    font-size: 20px;
+}
+
+nav ul li:hover a {
+    color: var(--logo-color);
+    transition: all .5s;
+}
+
+.active-link {
+    color: var(--active-color)!important;
+}
+
+
+/* Slider Styling */
+
+.slider {
+    width: 100%;
+    height: 50vh;
+    margin-top: 4rem;
+}
+
+.slider-div {
+    padding: 0;
+    position: relative;
+    border: 3px solid hsl(30, 6%, 7%);
+    margin: 2rem auto;
+    height: 327px!important;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.slider-div img {
+    width: 100%;
+    height: 320px!important;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.slider-div .slider-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: var(--slider-color);
+    transform: translate(-50%, -50%);
+    width: 80%;
+    font-size: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+section {
+    height: 100vh;
+}
+
+
+/* Video Container Styling */
+
+.video-container {
+    margin-top: 5rem;
+    height: 220vh;
+}
+
+.video {
+    width: 80%;
+    margin: 3rem auto;
+    background-color: var(--video-color);
+    height: 25rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.video video {
+    width: 100%;
+    height: 16rem;
+    object-fit: contain;
+}
+
+.video-text {
+    color: var(--text-color);
+    padding: 1rem 1rem;
+}
+
+.videoDuration {
+    margin-top: 0.7em;
+    color: white;
+    width: 9em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    display: none;
+}
+
+.controls {
+    display: flex;
+    align-content: center!important;
+    position: absolute;
+    bottom: 8.5em;
+    height: 38px;
+    width: 100%;
+    flex-wrap: wrap;
+    background-color: none;
+    transition: all .2s;
+}
+
+.videoDuration {
+    visibility: hidden;
+}
+
+.video:hover {
+    transform: translateY(-9px)!important;
+}
+
+.video:hover .controls {
+    background-color: rgba(0, 0, 0, .7);
+    bottom: 6em;
+}
+
+.video:hover button {
+    display: inline-block;
+}
+
+.video:hover .videoDuration {
+    display: inline-block;
+}
+
+input[type="range"]:focus {
+    outline: none;
+}
+
+.volume {
+    display: none;
+    cursor: pointer;
+    background: transparent!important;
+}
+
+.projector {
+    display: none;
+    cursor: pointer;
+    background: transparent!important;
+    position: absolute;
+    left: 9.3em;
+    top: 0.5em;
+}
+
+.projector i {
+    color: #fff;
+    font-size: 18px;
+}
+
+.projectvideo {
+    display: none;
+    cursor: pointer;
+    background: transparent!important;
+    position: absolute;
+    left: 9.3em;
+    top: 0.5em;
+}
+
+.projectvideo i {
+    color: #fff;
+    font-size: 18px;
+}
+
+input[type="range"] ::-webkit-slider-runnable-track {
+    width: 100%!important;
+    height: 50px!important;
+    cursor: pointer!important;
+    background: black!important;
+}
+
+input[type="range"] ::-webkit-slider-thumb {
+    --webkit-appearance: none;
+    height: 50px;
+    width: 10px;
+    background-color: var(--nav-color);
+}
+
+.video:hover .volume {
+    display: inline-block;
+    cursor: pointer;
+    background: transparent!important;
+}
+
+.video:hover .projector {
+    display: inline-block;
+    cursor: pointer;
+    background: transparent!important;
+}
+
+.video:hover .projectvideo {
+    display: inline-block;
+    cursor: pointer;
+    background: transparent!important;
+}
+
+.buttons {
+    padding: 8px;
+}
+
+.buttons button {
+    background: none;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    display: none;
+}
+
+.buttons button i {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    font-size: 28px;
+    color: #fff;
+}
+
+.volume i {
+    color: #fff;
+    font-size: 20px;
+}
+
+.volume {
+    margin-top: 0.45rem;
+}
+
+.orange-bar {
+    height: 4px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    cursor: pointer;
+}
+
+.orange-juice {
+    height: 4px;
+    background-color: var(--nav-color);
+}
+
+
+/* Posts Section Styling */
+
+.posts {
+    height: 230vh;
+    margin-top: 30em;
+}
+
+.post-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 4rem;
+}
+
+.post-div {
+    border: 3px solid var(--nav-color);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    row-gap: 2rem;
+    color: #fff;
+    flex-direction: column;
+    border-radius: 10px 10px 10px 0;
+    font-size: 18px;
+}
+
+.service-div {
+    box-shadow: rgba(0, 0, 0, 2) 0px 5px 15px;
+}
+
+.post-div img {
+    width: 20em;
+    height: 20em;
+    border-radius: 10px 10px 10px 0;
+    object-fit: cover;
+    transition: .2s cubic-bezier(0.42, 0, 0, 0.89);
+    cursor: crosshair;
+}
+
+.post-div img:hover {
+    transform: scale(1.1);
+}
+
+
+/* Bible Verses Container Styling */
+
+.verses {
+    height: 90vh;
+}
+
+.verse-div {
+    width: 240px!important;
+    height: 20rem!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1rem;
+    padding: 1.5rem;
+    flex-direction: column;
+    margin: 2rem 1rem;
+    background: var(--nav-color);
+    color: #fff;
+    border-radius: 1rem;
+    font-size: 18px;
+    overflow: hidden;
+}
+
+
+/* Modal Video Styling */
+
+.videomodal {
+    background: rgba(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3em;
+    position: relative;
+    visibility: hidden;
+    height: 0px;
+}
+
+.videomodal .video {
+    width: 700px;
+    margin: 3rem auto;
+    padding-bottom: 2em;
+    background-color: transparent!important;
+    position: relative;
+    overflow: hidden;
+    transition: none!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 900px;
+}
+
+.videomodal h2 {
+    position: absolute;
+    top: -3em;
+    display: none;
+}
+
+.videomodal video {
+    height: 700px;
+}
+
+.videomodal .video:hover {
+    transform: none;
+}
+
+.videomodal .video .controls {
+    bottom: 8em!important;
+    visibility: hidden;
+}
+
+.videomodal video {
+    object-fit: cover;
+}
+
+
+/* Footer Styling */
+
+footer {
+    height: 80vh;
+}
+
+.foot-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.foot-title {
+    padding-bottom: 1rem;
+}
+
+.foot-div {
+    color: #fff!important;
+}
+
+.foot-content li {
+    padding-bottom: 0.4rem;
+}
+
+.foot-content li:hover a {
+    color: var(--video-color);
+}
+
+.links a {
+    padding-right: 1rem;
+    font-size: 20px;
+}
+
+.links a:hover {
+    color: var(--video-color);
+}
+
+.footer__copy {
+    display: block;
+    margin-top: 4.5rem;
+    text-align: center;
+    font-size: 15px;
+}
+
+
+/* About Content Styling */
+
+.about {
+    height: 70vh;
+    margin-top: 4rem;
+}
+
+.about-container {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.7em;
+}
+
+
+/* About Page on the aboutchurch section styling */
+
+.aboutchurch img {
+    width: 100%;
+    height: 15em;
+    object-fit: cover;
+    border-radius: 10px 10px 10px 0;
+}
+
+.churchimg {
+    border: 3px solid hsl(30, 6%, 7%);
+    border-radius: 10px 10px 10px 0;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.aboutchurch {
+    margin-top: 5rem;
+    height: 150vh;
+}
+
+.aboutchurch h2 {
+    color: var(--nav-color);
+}
+
+.aboutchurch p {
+    color: #fff;
+}
+
+.aboutchurch-content {
+    padding-top: 2rem;
+}
+
+.content4 ul {
+    line-height: 2rem;
+    list-style-type: circle!important;
+}
+
+.content4 ul li {
+    list-style-type: disc;
+}
+
+.aboutcontent,
+.books-content2 {
+    border: 3px solid var(--nav-color);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    row-gap: 2rem;
+    color: #fff;
+    flex-direction: column;
+    border-radius: 10px 10px 10px 0;
+    font-size: 18px;
+    margin: 3rem 0;
+}
+
+.aboutcontent:hover,
+.books-content2:hover,
+.visioncontent:hover {
+    border: 3px solid hsl(30, 6%, 7%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+/* About Page on the visioner section styling */
+
+.visioner {
+    margin-top: 80rem;
+}
+
+.visioner-img {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visioner img {
+    width: 8em;
+    height: 8em;
+    object-fit: cover;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.visioncontent {
+    border: 3px solid var(--nav-color);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1rem;
+    color: #fff;
+    flex-direction: column;
+    border-radius: 10px 10px 10px 0;
+    font-size: 18px;
+    margin: 3rem 0;
+}
+
+
+/* About Page on the books section styling */
+
+.books {
+    margin-top: 74rem;
+}
+
+.books-content {
+    color: #fff;
+    font-size: 20px;
+    padding: 0 3rem;
+}
+
+.contact-content {
+    font-size: 20px;
+    line-height: 3rem;
+}
+
+.books-content2 ul li {
+    list-style-type: disc;
+}
+
+.aboutcontent ul li {
+    font-size: 22px;
+}
+
+
+/*=============== ADMIN SECTION ===============*/
+
+.addSlider {
+    height: 100vh;
+    width: 90%;
+}
+
+.main {
+    margin-top: 7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sliderform {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+.sliderform label {
+    color: var(--nav-color);
+}
+
+.sliderform textarea {
+    width: 30em;
+    border-radius: 10px;
+    background: transparent;
+    border: 3px solid var(--logo-color);
+    outline: none;
+    color: #fff;
+}
+
+.sliderform button {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.sliderform input[type="file"] {
+    display: none;
+}
+
+.sliderform .sliderlabel {
+    border: 2px solid var(--logo-color);
+    width: 9em;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background: rgba(126, 120, 120, 0.861);
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.sliderform .sliderlabel:active {
+    transform: translateY(6px);
+    border: 2px solid #fff;
+}
+
+.sliderform .imgfile {
+    height: 14em;
+    width: 80%;
+    border: 4px solid var(--nav-color);
+    border-radius: 10px;
+}
+
+.sliderform button {
+    padding: 1em 0;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background: var(--nav-color);
+    color: #fff;
+    cursor: pointer;
+}
+
+.sliderform button:hover {
+    color: #000;
+}
+
+.sliderform .imgfile {
+    position: relative;
+    width: 20em;
+}
+
+.sliderform .imgfile img::after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "No Image Selected";
+    font-size: 1.8rem;
+    background: #31dbe7;
+}
+
+.imgfile img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.imgfile .filename {
+    position: absolute;
+    bottom: 0;
+    height: 3em;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--video-color);
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.active {
+    display: block;
+}
+
+.sliderbtn-container {
+    width: 100%;
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 2em;
+}
+
+.sliderbtn-container .sliderbtn {
+    border-radius: 10px;
+    padding: 1em 4em;
+    cursor: pointer;
+    background: #000;
+    color: #fff;
+    font-size: 19px;
+}
+
+.sliderbtn-container .sliderbtn:hover a {
+    color: var(--nav-color);
+}
+
+.active-btn {
+    color: var(--nav-color);
+    border: 2px solid var(--nav-color);
+}
+
+.sliderform .errordiv {
+    width: 16em;
+    height: 3em;
+    display: none;
+    text-align: center;
+    padding-top: 10px;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+.sliderform .notifydiv {
+    width: 16em;
+    height: 3em;
+    display: none;
+    text-align: center;
+    padding-top: 10px;
+    margin: 0 auto;
+    font-size: 20px;
+    color: red;
+}
+
+.sliderform-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 4em;
+}
+
+
+/********** Sign Up Form Styling ********/
+
+.signup {
+    margin-top: 9em;
+}
+
+#signupform {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 2em;
+}
+
+.input-div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5em;
+}
+
+.input-div input {
+    border: 2px solid var(--nav-color);
+    padding: 1em 2em;
+    padding-left: 0.3em;
+    width: 24em;
+    outline: none;
+    font-size: 16px;
+    background: var(--logo-color);
+    border-radius: 10px;
+    color: #fff;
+}
+
+.input-div input::placeholder {
+    color: #fff;
+}
+
+.signup h2 {
+    color: #fff;
+}
+
+#signupform button {
+    padding: 1em 0;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background: var(--nav-color);
+    color: #fff;
+    cursor: pointer;
+    width: 9em;
+}
+
+#signupform button:hover {
+    color: #000;
+}
+
+#signupform .errorbox {
+    width: 16em;
+    height: 2em;
+    display: none;
+    text-align: center;
+    padding-top: 10px;
+    margin: 0 auto;
+    font-size: 20px;
+    color: red;
+}
+
+.checkrobot .random {
+    height: 3em;
+    width: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--nav-color);
+}
+
+.random h3 {
+    color: #000;
+}
+
+#signupform .checkrobot {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    height: 0em;
+    visibility: hidden;
+}
+
+#loginlink {
+    text-decoration: underline;
+}
+
+#loginlink:hover {
+    color: blue!important;
+}
+
+.signupfooter {
+    margin-top: 0;
+}
+
+
+/********** Login Page Styling ********/
+
+.loginfooter {
+    margin-top: 0;
+}
+
+.login {
+    margin-top: 9em;
+}
+
+.login h2 {
+    color: #fff;
+}
+
+#loginform {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 2em;
+}
+
+.passdiv {
+    position: relative;
+}
+
+#loginform button {
+    padding: 1em 0;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background: var(--nav-color);
+    color: #fff;
+    cursor: pointer;
+    width: 9em;
+}
+
+#loginform button:hover {
+    color: #000;
+}
+
+#loginform i {
+    color: #fff;
+    position: absolute;
+    right: 1.5em;
+    top: 30%;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#loginform .errorbox {
+    width: 16em;
+    height: 2em;
+    display: none;
+    text-align: center;
+    padding-top: 10px;
+    margin: 0 auto;
+    font-size: 20px;
+    color: red;
+}
+
+#updateform {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 2em;
+}
+
+#updateform .successbox {
+    height: 3em;
+    width: 16em;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: relative;
+    display: none;
+    transition: .3s linear;
+}
+
+#updateform .successbox h4 {
+    color: green;
+    text-align: center;
+}
+
+#updateform i {
+    color: #fff;
+    position: absolute;
+    right: 1.5em;
+    top: 30%;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#updateform #check {
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    font-size: 20px;
+    cursor: pointer;
+    padding-top: 0.4em;
+}
+
+#updateform button {
+    padding: 1em 0;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background: var(--nav-color);
+    color: #fff;
+    cursor: pointer;
+    width: 9em;
+}
+
+#updateform button:hover {
+    color: #000;
+}
+
+#updateform .errorbox {
+    width: 16em;
+    height: 2em;
+    display: none;
+    text-align: center;
+    padding-top: 10px;
+    margin: 0 auto;
+    font-size: 20px;
+    color: red;
+}
+
+
+/*********** All Videos *********/
+
+.allvideos {
+    margin-top: 6em;
+}
+
+.deletebtn {
+    border-radius: 10px;
+    padding: 1em 4em;
+    cursor: pointer;
+    background-color: var(--logo-color);
+    color: red;
+    font-size: 19px;
+    margin: 0 auto;
+    transition: .5s linear;
+    width: 70%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deletebtn a {
+    color: red;
+}
+
+.buttons-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 1.4em;
+}
+
+.editbtn {
+    border-radius: 10px;
+    padding: 1em 4em;
+    cursor: pointer;
+    background-color: var(--logo-color);
+    color: green;
+    font-size: 19px;
+    margin: 0 auto;
+    transition: .5s linear;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editbtn a {
+    color: green;
+}
+
+.deletebtn:hover {
+    border: 2px solid red;
+}
+
+.editbtn:hover {
+    border: 2px solid green;
+}
+
+.videos-container {
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 3em;
+    padding: 1em;
+}
+
+.vid {
+    border: 2px solid var(--logo-color);
+    border-radius: 10px;
+    width: 90%;
+    min-height: 35em;
+    position: relative;
+}
+
+.post {
+    min-height: 40px!important;
+}
+
+.versecon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.versecon h2 {
+    color: #fff;
+}
+
+.vid h4 {
+    text-align: center;
+}
+
+.vid video {
+    width: 100%;
+    height: 18.7em;
+}
+
+.vid img {
+    width: 100%;
+    height: 20em;
+    object-fit: cover;
+}
+
+.videotext {
+    min-height: 4em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.deletecarrier {
+    position: absolute;
+    top: 8em;
+    width: 100%;
+    height: 20em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deletemodal {
+    width: 80%;
+    height: 12em;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 20000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2em;
+    border-radius: 10px;
+    visibility: hidden;
+}
+
+.deletemodal h2 {
+    color: #fff;
+}
+
+.btn-container {
+    width: 16em;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    column-gap: 1em;
+}
+
+.btn-container button {
+    width: 40%;
+    padding: 0.3em 2em;
+    background-color: var(--nav-color);
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    transition: .4s ease-out;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+.btn-container button:hover {
+    border: 2px solid #fff;
+}
+
+
+/**************** Users Container ***************/
+
+.users {
+    margin-top: 6em;
+}
+
+.user-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 1.5em;
+}
+
+.user {
+    display: flex;
+    column-gap: 1em;
+    background: var(--nav-color);
+    width: 80%;
+    padding: 1em;
+    border-radius: 10px;
+}
+
+.user:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.user h4 {
+    color: #fff;
+}
+
+
+/*=============== SCROLL BAR ===============*/
+
+::-webkit-scrollbar {
+    width: .6rem;
+    background-color: hsl(219, 4%, 16%);
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+}
+
+
+/* Media Query For Medium Styling */
+
+@media only screen and (min-width: 667px) {
+    .video {
+        width: 60%;
+    }
+    .post-div {
+        width: 60%;
+    }
+    .about-container {
+        width: 60%;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .controls {
+        bottom: 4.3em;
+    }
+    .video {
+        width: 100%;
+    }
+    .post-container {
+        position: relative;
+    }
+    .post-div {
+        width: 100%;
+    }
+    .visioner {
+        margin-top: 89rem;
+    }
+    .books {
+        height: 110vh;
+        margin-top: 85rem;
+    }
+    .accountdiv {
+        height: 24rem;
+    }
+    .slider-one {
+        margin: 0 auto;
+    }
+    .sliderbtn-container {
+        flex-direction: column;
+        row-gap: 3em;
+    }
+    .sliderbtn {
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 867px) {
+    .slider-div {
+        height: 400px!important;
+        overflow-y: hidden;
+    }
+    .slider-div img {
+        height: 395px!important;
+    }
+    .video-container {
+        margin-top: 10rem;
+    }
+    .video {
+        width: 50%;
+    }
+    .post-div {
+        width: 50%;
+    }
+    .about-container {
+        width: 60%;
+        margin: 0 auto;
+    }
+    .cancel,
+    .menudiv {
+        display: none;
+    }
+    nav {
+        transform: translateX(0);
+        background: transparent;
+        position: unset;
+        height: 2em;
+        transition: unset;
+        width: 70%;
+    }
+    nav ul {
+        top: -1.6em;
+        display: flex;
+        margin: 0 auto;
+    }
+    nav ul li {
+        padding-left: 2em;
+    }
+    .foot-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .churchimg {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .aboutchurch img {
+        width: 80%;
+        height: 23em;
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .controls {
+        bottom: 5.8em;
+    }
+    .posts {
+        height: 140vh;
+        margin-top: 2em;
+    }
+    .video {
+        width: 40%;
+    }
+    .video-container {
+        height: 170vh!important;
+    }
+    .videomodal h2 {
+        position: absolute;
+        top: 1em;
+        color: #fff;
+    }
+    .videoflex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .post-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .verses {
+        padding: 0 9em;
+        margin-top: 0rem!important;
+    }
+    .post-div {
+        width: 45%;
+        height: 20em;
+        margin: 0 2rem;
+    }
+    .post-div img {
+        width: 100%;
+        height: 100%;
+    }
+    .about {
+        margin-top: 1rem;
+        height: 40vh;
+    }
+    .about-container {
+        width: 50%;
+        margin: 0 auto;
+    }
+    footer {
+        height: 40vh;
+    }
+    .foot-container {
+        transform: translateY(50%);
+    }
+    .footer__copy {
+        margin-top: 14rem;
+    }
+    .churchimg {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .aboutchurch {
+        height: 110vh;
+    }
+    .aboutchurch img {
+        width: 80%;
+        height: 23em;
+        text-align: center;
+        transition: .2s cubic-bezier(1, -0.41, 1, 1);
+    }
+    .aboutchurch img:hover {
+        width: 100%;
+    }
+    .visioner img {
+        width: 12em;
+        height: 12em;
+    }
+    .books {
+        margin-top: 45rem;
+    }
+    .account-content {
+        font-size: 20px;
+        top: 3em;
+    }
+    .emoji {
+        font-size: 40px;
+    }
+    .sliderform-container {
+        flex-direction: row;
+        column-gap: 6em;
+    }
+    .videos-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 2em;
+    }
+    .vid {
+        width: 40%;
+    }
+    .sliderbtn-container .deletebtn {
+        width: 30%;
+        color: red;
+    }
+    #deleteform .deletebtn {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .user {
+        width: 40%;
+    }
+    .user-container {
+        column-gap: 2em;
+    }
+    nav ul li:hover a {
+        color: var(--nav-color);
+        transition: all .5s;
+    }
+}
