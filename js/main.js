@@ -228,7 +228,9 @@ projectoricon.addEventListener('click',function(){
   var projectorvideo = document.querySelector('.videomodal video')
   var projectvid = document.querySelector('.videomodal video > source')
   var srcstring = source.src;
-  var newsrc = srcstring.substr(30,srcstring.length)
+ 
+  var newsrc = srcstring.substr(31,srcstring.length);
+  // console.log(newsrc);
   // // projectvid.src = newsrc;
   projectvid.setAttribute('src',newsrc)
   projectorvideo.load()
